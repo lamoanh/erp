@@ -5,9 +5,7 @@ include:
 openerp-server:
   pkg:
     - installed
-    - pkgs:
-      - openerp6.1-core
-      - openerp6.1-full
+    - name: openerp6.1-full
     - skip_verify: True
     - require:
       - pkg: libjs-underscore
@@ -23,7 +21,7 @@ openerp-server:
 /etc/openerp/openerp-server.conf:
   file:
     - managed
-    - source: salt://openerp/openerp-server.conf
+    - source: salt://openerp/config.jinja2
     - user: root
     - group: root
     - mode: 400
