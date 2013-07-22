@@ -6,10 +6,9 @@ openerp-server:
   pkg:
     - installed
     - name: openerp6.1-full
-    - skip_verify: True
     - require:
       - pkg: libjs-underscore
-      - pkg: postgresql
+      - service: postgresql
   service:
     - running
     - enable: True
