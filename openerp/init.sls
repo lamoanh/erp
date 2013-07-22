@@ -1,31 +1,24 @@
 include:
   - postgresql
-
-libjs-underscore:
-  pkgrepo:
-    - managed
-    - ppa: chris-lea/libjs-underscore
-  pkg:
-    - installed
-    - version: 1.3.3-1ubuntu1
-    - required:
-      - pkgrepo: libjs-underscore
+  - libjs-underscore
 
 openerp-server:
   pkg:
     - installed
-    - names: 
+    - pkgs:
       - openerp6.1-core
       - openerp6.1-full
-    - required:
-      - pkgs:
-        - libjs-underscore
-        - postgresql
+    - skip_verify: True
+    - require:
+      - pkg: libjs-underscore
+      - pkg: postgresql
   service:
     - running
     - enable: True
-    - required:
+    - require:
       - pkg: openerp-server
+    - watch:
+      - file: /etc/openerp/openerp-server.conf
 
 /etc/openerp/openerp-server.conf:
   file:
@@ -35,5 +28,5 @@ openerp-server:
     - group: root
     - mode: 400
     - template: jinja
-    - required:
+    - require:
       - pkg: openerp-server
