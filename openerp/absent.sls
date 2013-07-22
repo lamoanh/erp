@@ -1,13 +1,10 @@
-include:
-  - libjs-underscore.absent
-
-{% for name in 'openerp6.1-core','openerp6.1-full'  %}
+{%- for name in 'openerp6.1-core','openerp6.1-full'  %}
 {{ name }}:
   pkg:
     - purged
     - require:
       - service: openerp-server
-{% endfor %}
+{%- endfor %}
 
 openerp-server:
   service:

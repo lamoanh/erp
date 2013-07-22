@@ -1,4 +1,0 @@
-base:
-  '*': 
-    #- openerp
-    - openerp.absent

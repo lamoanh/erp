@@ -1,6 +1,6 @@
 include:
   - postgresql
-  - libjs-underscore
+  - underscore
 
 openerp-server:
   pkg:
