@@ -12,4 +12,4 @@ openerp-server:
   file:
     - absent
     - require:
-      - service: openerp-server
+      - pkg: openerp-server
