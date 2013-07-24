@@ -3,12 +3,16 @@ include:
   - underscore
 
 openerp-server:
+  pkgrepo:
+    - managed
+    - ppa: credativ/openerp-6.0-releases
   pkg:
     - installed
     - name: openerp6.1-full
     - require:
       - pkg: libjs-underscore
       - service: postgresql
+      - pkgrepo: openerp-server
   service:
     - running
     - enable: True
