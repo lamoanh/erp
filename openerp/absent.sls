@@ -3,9 +3,6 @@ openerp6.1-full:
     - purged
     - require:
       - service: openerp-server
-  pkgrepo:
-    - absent
-    - ppa: credativ/openerp-6.0-releases
 
 openerp-server:
   service:
